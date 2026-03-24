@@ -76,7 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
         fruit.style.left = Math.round(550 * Math.random()) + "px";
         fruit.style.top = "-50px";
 
-        step = 1 + Math.round(5 * Math.random());
+        step = 2 + Math.round(2 * Math.random());
 
         action = setInterval(() => {
             fruit.style.top = (fruit.offsetTop + step) + "px";
