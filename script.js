@@ -63,7 +63,7 @@ $(function(){
    function addhearts() {
     $('#trialsleft').empty();
     for(i = 0 ; i < trialsleft ; i++){
-        $('#trialsleft').append('<img src="https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/wrong.png" , class="life">');
+        $('#trialsleft').append('<img src="./Heart.png" , class="life">');
     }
 }
 
