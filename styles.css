@@ -42,6 +42,7 @@ html{
 }
 #fruitcontainer{
     background: url() ;
+    background: url(./Fruitboard.png) ;
     background-size: cover;
     width: 650px;
     height: 450px;
