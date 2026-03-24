@@ -1,7 +1,7 @@
 html{
   height: 100%;
   background: radial-gradient(circle,#fff,rgb(189, 182, 182));
-  background-image: url();
+  background-image: url(./bombs.png);
   background-size: cover;
   font-family: cursive, sans-serif;
 }
