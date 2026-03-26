@@ -1,153 +1,148 @@
+
 html{
   height: 100%;
   background: radial-gradient(circle,#fff,rgb(189, 182, 182));
   background-image: url(./photos/bg.jpg);
   background-size: cover;
   font-family: cursive, sans-serif;
+
 }
-#container{
-    width: 750px;
-    height: 600px;
-    margin: 10px auto;
-    padding: 20px;
-    border-radius: 10px;
+
+#container {
+    width: 39vw;        /* 750px */
+    height: 31.25vw;    /* 600px */
+    margin: 0.5vw auto; /* 10px */
+    padding: 1vw;       /* 20px */
+    border-radius: 0.5vw;
     position: relative;
 }
 
-#front{
-    font-size: 40px;
+#front {
+    font-size: 2.1vw;   /* 40px */
     color: #3d7a35;
-    width: 650px;
-    height: 450px;
-    padding: 10px;
-    margin: 30px auto 20px auto;
+    width: 33.8vw;      /* 650px */
+    height: 23.4vw;     /* 450px */
+    padding: 0.5vw;     /* 10px */
+    margin: 1.5vw auto 1vw auto;
     z-index: 2;
     font-family: 'Segoe UI', Tahoma;
     font-weight: 600;
-    
 }
-#front img{
-    width: 280px;
+
+#front img {
+    width: 14.5vw;      /* 280px */
 }
+
 #instructions {
-    width: 450px;
-    height: 50px;
-    margin: 10px auto;
-    font-size: 30px;
+    width: 23.4vw;      /* 450px */
+    height: 2.6vw;      /* 50px */
+    margin: 0.5vw auto;
+    font-size: 1.56vw;  /* 30px */
     font-family: 'Segoe UI', Tahoma;
     font-weight: 600;
     background-color: #2d5a27; 
     color: #f1f1f1;
     border-radius: 0px; 
-    border: 2px solid #3d7a35;
+    border: 0.1vw solid #3d7a35;
     text-align: center;
-    line-height: 50px;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    line-height: 2.6vw; /* Tyle co height */
+    box-shadow: 0px 0.3vw 0.6vw rgba(0, 0, 0, 0.15);
 }
+
 #fruitcontainer{
     background: url() ;
     background: url(./photos/Fruitboard.png) ;
+
     background-size: cover;
-    width: 650px;
-    height: 450px;
-    padding: 10px;
-    margin: 30px auto 20px auto;
+    width: 33.8vw;      /* 650px */
+    height: 23.4vw;     /* 450px */
+    padding: 0.5vw;
+    margin: 1.5vw auto 1vw auto;
     background-color: white;
-    color: black;
     text-align: center;
-    font-family: cursive,sans-serif;
+    font-family: cursive, sans-serif;
     overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0px 4px 0px 0px #4b4b4e;
+    border-radius: 1vw;
+    box-shadow: 0px 0.2vw 0px 0px #4b4b4e;
     position: relative;
 }
 
-
-#score{
-    display: none;
-}
-.scoreDisplay{
+.scoreDisplay {
     z-index: 1;
     display: flex;
-    background-color: transparent;
     color: #2d5a27;
     position: absolute;
-   font-size: 30px;
-   justify-items:  center;
-   font-family: 'Segoe UI', Tahoma;
+    font-size: 1.5vw;   /* 30px */
+    font-family: 'Segoe UI', Tahoma;
     font-weight: 600;
 }
 
-#score img{
-    width: 40px;
-  align-items: center;
-   padding-right: 5px;
+#score img {
+    width: 2vw;         /* 40px */
+    padding-right: 0.25vw;
 }
-#trialsleft{
-    margin-top: 7px;
+
+#trialsleft {
+    margin-top: 0.36vw;
     display: flex;
     position: absolute;
-    left:550px;
-    background-color:transparent;
+    left: 28.6vw;       /* 550px */
     z-index: 1;
 }
-.life{
-    width: 30px;
-    padding-right: 5px;
+
+.life {
+    width: 1.5vw;       /* 30px */
+    padding-right: 0.25vw;
 }
 
 #startReset {
     position: relative;
-    width: 120px; 
-    padding: 12px;
-    margin: 20px auto;
+    width: 10vw;          /* Zwiększyłem nieco szerokość (z 6.25vw), aby napis "START GAME" się nie łamał */
+    min-height: 3vw;     /* Dodajemy stałą wysokość zamiast samego paddingu */
+    margin: 2vw auto;
     cursor: pointer;
-    text-align: center;
+
+    /* IDEALNE WYŚRODKOWANIE (Flexbox) */
+    display: flex;
+    align-items: center;    /* Środek w pionie */
+    justify-content: center; /* Środek w poziomie */
+
     background-color: #2d5a27;
     color: #f1f1f1;
     font-family: 'Segoe UI', Tahoma;
     font-weight: 600;
-    border-radius: 50px;
-    border: 2px solid #3d7a35;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    font-size: 1vw;
+
+    border-radius: 50px; /* Jeśli chcesz okrągłe końce jak wcześniej */
+    border: 0.1vw solid #3d7a35;
+    box-shadow: 0px 0.3vw 0.6vw rgba(0, 0, 0, 0.15);
     transition: all .2s ease;
 }
 
-/* Efekt najechania myszką (żeby przycisk "żył") */
-#startReset:hover {
-    background-color: #3d7a35;
-    transform: translateY(-2px); /* Delikatne uniesienie */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Efekt kliknięcia (Twój aktywny styl) */
 #startReset:active {
     background-color: #1e3d1a;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    top: 2px; 
-    transform: translateY(0px);
+    box-shadow: 0px 0px rgba(0, 0, 0, 0.2);
+    top: 0.2vw; 
+    transform: translateY(0vw);
 }
 
-#gameOver{
-    box-sizing: border-box;
-    width: 500px;
-    height: 300px;
-    background: transparent;
-    color:#3d7a35;
-    text-transform: upperCase;
-    text-align: center;
-    font-size: 3em;
+#gameOver {
+    width: 26vw;        /* 500px */
+    height: 15.6vw;     /* 300px */
+    font-size: 3vw;     /* 3em -> proporcjonalne */
     position: absolute;
-    top: 170px;
-    left: 150px;
+    top: 8.8vw;         /* 170px */
+    left: 7.8vw;        /* 150px */
     z-index: 2;
     font-family: 'Segoe UI', Tahoma;
     font-weight: 600;
 }
+
 .fruit {
     display: none;
     position: absolute;
     width: 100px; /* Dodaj stałą szerokość dla czytelności */
     cursor: cursor;
-    pointer-events: auto; /* Upewnij się, że myszka wykrywa owoc */
+    pointer-events: auto; 
 }
+
