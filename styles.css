@@ -1,7 +1,7 @@
 html{
   height: 100%;
   background: radial-gradient(circle,#fff,rgb(189, 182, 182));
-  background-image: url(./bg.jpg);
+  background-image: url(./photos/bg.jpg);
   background-size: cover;
   font-family: cursive, sans-serif;
 }
@@ -46,7 +46,7 @@ html{
 }
 #fruitcontainer{
     background: url() ;
-    background: url(./Fruitboard.png) ;
+    background: url(./photos/Fruitboard.png) ;
     background-size: cover;
     width: 650px;
     height: 450px;
@@ -148,6 +148,6 @@ html{
     display: none;
     position: absolute;
     width: 100px; /* Dodaj stałą szerokość dla czytelności */
-    cursor: crosshair;
+    cursor: cursor;
     pointer-events: auto; /* Upewnij się, że myszka wykrywa owoc */
 }
