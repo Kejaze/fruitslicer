@@ -85,7 +85,7 @@ window.addEventListener("DOMContentLoaded", () => {
         
         itemElement.className = "fruit";
         if (isBomb) {
-            itemElement.src = "./bombs.png";
+            itemElement.src = "./bomba.png";
         } else {
             const randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
             itemElement.src = `./photos/${randomFruit}.png`; 
