@@ -58,10 +58,7 @@ html{
     position: relative;
 }
 
-.fruit{
-    display: none;
-    position: absolute;
-}
+
 #score{
     display: none;
 }
@@ -126,4 +123,11 @@ html{
     top: 170px;
     left: 150px;
     z-index: 2;
+}
+.fruit {
+    display: none;
+    position: absolute;
+    width: 50px; /* Dodaj stałą szerokość dla czytelności */
+    cursor: crosshair;
+    pointer-events: auto; /* Upewnij się, że myszka wykrywa owoc */
 }

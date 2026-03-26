@@ -1,63 +1,40 @@
 let playing = false;
 let score;
 let trialsleft;
-let step;
-let action;
-const fruits = ['1','2','3','4','5','6','7','8','9','10'];
+let action; 
+let items = []; // Tablica na owoce i bomby
+const fruits = ['1','2','3','4','5','6','7','8','9','10']; 
 
 window.addEventListener("DOMContentLoaded", () => {
-
     const front = document.getElementById("front");
     const startReset = document.getElementById("startReset");
-    const scoreBox = document.getElementById("score");
+    const scoreBox = document.getElementById("score"); // Kontener z arbuzem
     const scoreValue = document.getElementById("scoreValue");
     const trialsBox = document.getElementById("trialsleft");
     const gameOver = document.getElementById("gameOver");
-    const fruit = document.getElementById("fruit1");
-    const sliceSound = document.getElementById("slicesound");
     const fruitContainer = document.getElementById("fruitcontainer");
 
-    front.style.display = "block";
-
-    // START / RESET
     startReset.addEventListener("click", () => {
         if (playing) {
             location.reload();
         } else {
-            front.style.display = "none";
-            scoreBox.style.display = "block";
             playing = true;
-
             score = 0;
-            scoreValue.textContent = score;
-
             trialsleft = 3;
-            trialsBox.style.display = "block";
-            addHearts();
-
+            
+            // Przywrócenie wyświetlania licznika z arbuzem
+            scoreValue.textContent = score;
+            scoreBox.style.display = "flex"; // Używamy flex, by arbuz i tekst były obok siebie
+            
+            front.style.display = "none";
             gameOver.style.display = "none";
-
+            trialsBox.style.display = "block";
             startReset.textContent = "Reset Game";
-
-            startAction();
+            
+            addHearts();
+            startGameLoop();
         }
     });
-
-    // SLICING FRUIT
-    fruit.addEventListener("mouseover", () => {
-        score++;
-        scoreValue.textContent = score;
-
-        sliceSound.play();
-
-        clearInterval(action);
-
-        explodeFruit(fruit);
-
-        setTimeout(startAction, 500);
-    });
-
-    // FUNCTIONS
 
     function addHearts() {
         trialsBox.innerHTML = "";
@@ -69,63 +46,96 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function startAction() {
-        fruit.style.display = "block";
-        chooseRandom();
-
-        fruit.style.left = Math.round(550 * Math.random()) + "px";
-        fruit.style.top = "-50px";
-
-        step = 2 + Math.round(2 * Math.random());
-
+    function startGameLoop() {
         action = setInterval(() => {
-            fruit.style.top = (fruit.offsetTop + step) + "px";
-
-            if (fruit.offsetTop > fruitContainer.offsetHeight - 50) {
-
-                if (trialsleft > 1) {
-                    chooseRandom();
-                    fruit.style.left = Math.round(550 * Math.random()) + "px";
-                    fruit.style.top = "-50px";
-                    step = 1 + Math.round(5 * Math.random());
-
-                    trialsleft--;
-                    addHearts();
-
-                } else {
-                    playing = false;
-                    scoreBox.style.display = "none";
-                    startReset.textContent = "Start Game";
-
-                    gameOver.style.display = "block";
-                    gameOver.innerHTML = `<p>Game Over!</p><p>Your score is ${score}</p>`;
-
-                    trialsBox.style.display = "none";
-                    stopAction();
-                }
+            // Szansa na nowy owoc/bombę (ok. 5% co 20ms)
+            if (Math.random() < 0.05 && items.length < 5) { 
+                createItem();
             }
-        }, 10);
+
+            items.forEach((item, index) => {
+                // Zwiększanie prędkości co 10 punktów
+                let speed = 2 + Math.floor(score / 10); 
+                item.top += speed;
+                item.element.style.top = item.top + "px";
+
+                // Jeśli spadnie poza ekran
+                if (item.top > fruitContainer.offsetHeight) {
+                    if (item.type === "fruit") {
+                        trialsleft--;
+                        addHearts();
+                    }
+                    removeItem(index);
+
+                    if (trialsleft <= 0) {
+                        stopGame();
+                    }
+                }
+            });
+        }, 20);
     }
 
-    function chooseRandom() {
-        fruit.src = `https://raw.githubusercontent.com/Saumya-07/Fruit-Slicer/master/images/${fruits[Math.floor(Math.random() * fruits.length)]}.png`;
+    function createItem() {
+        const itemElement = document.createElement("img");
+        const isBomb = Math.random() < 0.15; // 15% szansy na bombę
+        const type = isBomb ? "bomb" : "fruit";
+        
+        itemElement.className = "fruit";
+        if (isBomb) {
+            itemElement.src = "./bombs.png";
+        } else {
+            // Losowanie owocu z folderu photos
+            const randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
+            itemElement.src = `./photos/${randomFruit}.png`; 
+        }
+
+        itemElement.style.display = "block";
+        // Losowanie pozycji X (szerokość kontenera minus szerokość owocu)
+        itemElement.style.left = Math.round(Math.random() * (600)) + "px";
+        itemElement.style.top = "-50px";
+
+        const itemObj = { element: itemElement, top: -50, type: type };
+        
+        itemElement.addEventListener("mouseover", () => {
+            if (type === "fruit") {
+                score++;
+                scoreValue.textContent = score; // Aktualizacja punktów obok arbuza
+                animateSlice(itemElement);
+            } else {
+                trialsleft--; 
+                addHearts();
+                animateSlice(itemElement);
+                if (trialsleft <= 0) stopGame();
+            }
+            items.splice(items.indexOf(itemObj), 1);
+        });
+
+        fruitContainer.appendChild(itemElement);
+        items.push(itemObj);
     }
 
-    function stopAction() {
-        clearInterval(action);
-        fruit.style.display = "none";
-    }
-
-    // Replacement for jQuery UI "explode"
-    function explodeFruit(el) {
-        el.style.transition = "transform 0.3s, opacity 0.3s";
-        el.style.transform = "scale(0)";
+    function animateSlice(el) {
+        el.style.transition = "transform 0.2s, opacity 0.2s";
+        el.style.transform = "scale(1.5)";
         el.style.opacity = "0";
+        setTimeout(() => el.remove(), 200);
+    }
 
-        setTimeout(() => {
-            el.style.display = "none";
-            el.style.transform = "scale(1)";
-            el.style.opacity = "1";
-        }, 300);
+    function removeItem(index) {
+        if(items[index]) {
+            items[index].element.remove();
+            items.splice(index, 1);
+        }
+    }
+
+    function stopGame() {
+        playing = false;
+        clearInterval(action);
+        scoreBox.style.display = "none"; // Ukrywamy licznik przy Game Over
+        gameOver.style.display = "block";
+        gameOver.innerHTML = `<p>Game Over!</p><p>Twoje punkty: ${score}</p>`;
+        items.forEach(item => item.element.remove());
+        items = [];
+        startReset.textContent = "Start Game";
     }
 });
