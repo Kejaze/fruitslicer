@@ -52,15 +52,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function startGameLoop() {
         action = setInterval(() => {
-            // Losowanie nowych obiektów
+            
             if (Math.random() < 0.05 && items.length < 6) { 
                 createItem();
             }
 
-            // Poruszanie obiektami (pętla od tyłu dla stabilności)
+            
             for (let i = items.length - 1; i >= 0; i--) {
                 let item = items[i];
-                let speed = 2 + Math.floor(score / 10); // Prędkość rośnie co 10 pkt
+                let speed = 2 + Math.floor(score / 10); 
                 
                 item.top += speed;
                 item.element.style.top = item.top + "px";
@@ -89,7 +89,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let chance = Math.random();
         let type;
         
-        // Losowanie typu obiektu
+        
         if (chance < 0.15) {
             type = "bomb";
             itemElement.src = "./photos/bomba.png";
@@ -125,7 +125,7 @@ window.addEventListener("DOMContentLoaded", () => {
             bombsound.play();
                 if (trialsleft <= 0) stopGame();
             } else if (type === "heart") {
-                // Opcjonalny dźwięk dla serca (możesz dać inny lub sliceSound)
+                
                 healSound.currentTime = 0;
                 healSound.play();
                 if (trialsleft < 3) {

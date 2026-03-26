@@ -9,20 +9,20 @@ html{
 }
 
 #container {
-    width: 39vw;        /* 750px */
-    height: 31.25vw;    /* 600px */
-    margin: 0.5vw auto; /* 10px */
-    padding: 1vw;       /* 20px */
+    width: 39vw;        
+    height: 31.25vw;    
+    margin: 0.5vw auto; 
+    padding: 1vw;       
     border-radius: 0.5vw;
     position: relative;
 }
 
 #front {
-    font-size: 2.1vw;   /* 40px */
+    font-size: 2.1vw;   
     color: #3d7a35;
-    width: 33.8vw;      /* 650px */
-    height: 23.4vw;     /* 450px */
-    padding: 0.5vw;     /* 10px */
+    width: 33.8vw;      
+    height: 23.4vw;     
+    padding: 0.5vw;     
     margin: 1.5vw auto 1vw auto;
     z-index: 2;
     font-family: 'Segoe UI', Tahoma;
@@ -30,14 +30,14 @@ html{
 }
 
 #front img {
-    width: 14.5vw;      /* 280px */
+    width: 14.5vw;      
 }
 
 #instructions {
-    width: 23.4vw;      /* 450px */
-    height: 2.6vw;      /* 50px */
+    width: 23.4vw;      
+    height: 2.6vw;      
     margin: 0.5vw auto;
-    font-size: 1.56vw;  /* 30px */
+    font-size: 1.56vw;  
     font-family: 'Segoe UI', Tahoma;
     font-weight: 600;
     background-color: #2d5a27; 
@@ -45,7 +45,7 @@ html{
     border-radius: 0px; 
     border: 0.1vw solid #3d7a35;
     text-align: center;
-    line-height: 2.6vw; /* Tyle co height */
+    line-height: 2.6vw; 
     box-shadow: 0px 0.3vw 0.6vw rgba(0, 0, 0, 0.15);
 }
 
@@ -54,8 +54,8 @@ html{
     background: url(./photos/Fruitboard.png) ;
 
     background-size: cover;
-    width: 33.8vw;      /* 650px */
-    height: 23.4vw;     /* 450px */
+    width: 33.8vw;      
+    height: 23.4vw;     
     padding: 0.5vw;
     margin: 1.5vw auto 1vw auto;
     background-color: white;
@@ -72,13 +72,13 @@ html{
     display: flex;
     color: #2d5a27;
     position: absolute;
-    font-size: 1.5vw;   /* 30px */
+    font-size: 1.5vw;   
     font-family: 'Segoe UI', Tahoma;
     font-weight: 600;
 }
 
 #score img {
-    width: 2vw;         /* 40px */
+    width: 2vw;         
     padding-right: 0.25vw;
 }
 
@@ -86,26 +86,26 @@ html{
     margin-top: 0.36vw;
     display: flex;
     position: absolute;
-    left: 28.6vw;       /* 550px */
+    left: 28.6vw;       
     z-index: 1;
 }
 
 .life {
-    width: 1.5vw;       /* 30px */
+    width: 1.5vw;       
     padding-right: 0.25vw;
 }
 
 #startReset {
     position: relative;
-    width: 10vw;          /* Zwiększyłem nieco szerokość (z 6.25vw), aby napis "START GAME" się nie łamał */
-    min-height: 3vw;     /* Dodajemy stałą wysokość zamiast samego paddingu */
+    width: 10vw;          
+    min-height: 3vw;     
     margin: 2vw auto;
     cursor: pointer;
 
-    /* IDEALNE WYŚRODKOWANIE (Flexbox) */
+    
     display: flex;
-    align-items: center;    /* Środek w pionie */
-    justify-content: center; /* Środek w poziomie */
+    align-items: center;    
+    justify-content: center; 
 
     background-color: #2d5a27;
     color: #f1f1f1;
@@ -113,7 +113,7 @@ html{
     font-weight: 600;
     font-size: 1vw;
 
-    border-radius: 50px; /* Jeśli chcesz okrągłe końce jak wcześniej */
+    border-radius: 50px; 
     border: 0.1vw solid #3d7a35;
     box-shadow: 0px 0.3vw 0.6vw rgba(0, 0, 0, 0.15);
     transition: all .2s ease;
@@ -127,12 +127,12 @@ html{
 }
 
 #gameOver {
-    width: 26vw;        /* 500px */
-    height: 15.6vw;     /* 300px */
-    font-size: 3vw;     /* 3em -> proporcjonalne */
+    width: 26vw;        
+    height: 15.6vw;     
+    font-size: 3vw;     
     position: absolute;
-    top: 8.8vw;         /* 170px */
-    left: 7.8vw;        /* 150px */
+    top: 8.8vw;         
+    left: 7.8vw;        
     z-index: 2;
     font-family: 'Segoe UI', Tahoma;
     font-weight: 600;
@@ -141,7 +141,7 @@ html{
 .fruit {
     display: none;
     position: absolute;
-    width: 100px; /* Dodaj stałą szerokość dla czytelności */
+    width: 100px; 
     cursor: cursor;
     pointer-events: auto; 
 }
