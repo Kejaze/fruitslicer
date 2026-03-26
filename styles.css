@@ -16,13 +16,13 @@ html{
 
 #front{
     font-size: 40px;
-    color: #d3901d;
+    color: #3d7a35;
     width: 650px;
     height: 450px;
     padding: 10px;
     margin: 30px auto 20px auto;
     z-index: 2;
-    display: none;
+    
 }
 #front img{
     width: 280px;
@@ -68,10 +68,12 @@ html{
     z-index: 1;
     display: flex;
     background-color: transparent;
-    color: #888e61;
+    color: #2d5a27;
     position: absolute;
    font-size: 30px;
    justify-items:  center;
+   font-family: 'Segoe UI', Tahoma;
+    font-weight: 600;
 }
 
 #score img{
