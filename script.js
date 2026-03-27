@@ -5,6 +5,7 @@ let action;
 let items = []; 
 const fruits = ['1','2','3','4','5','6','7','8','9','10']; 
 
+
 window.addEventListener("DOMContentLoaded", () => {
     const sliceSound = document.getElementById("slicesound");
     const healSound = document.getElementById("healsound");
@@ -40,6 +41,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+
     function addHearts() {
         trialsBox.innerHTML = "";
         for (let i = 0; i < trialsleft; i++) {
@@ -49,6 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
             trialsBox.appendChild(img);
         }
     }
+
 
     function startGameLoop() {
         action = setInterval(() => {
@@ -84,6 +87,8 @@ window.addEventListener("DOMContentLoaded", () => {
         }, 20);
     }
 
+
+    
     function createItem() {
         const itemElement = document.createElement("img");
         let chance = Math.random();
@@ -143,12 +148,14 @@ window.addEventListener("DOMContentLoaded", () => {
         items.push(itemObj);
     }
 
+
     function animateSlice(el) {
         el.style.transition = "transform 0.2s, opacity 0.2s";
         el.style.transform = "scale(1.5) rotate(20deg)";
         el.style.opacity = "0";
         setTimeout(() => { if(el) el.remove(); }, 200);
     }
+
 
     function stopGame() {
         playing = false;
