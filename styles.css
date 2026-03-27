@@ -46,7 +46,7 @@ html{
     border: 0.1vw solid #3d7a35;
     text-align: center;
     line-height: 2.6vw; 
-    box-shadow: 0px 0.3vw 0.6vw rgba(0, 0, 0, 0.15);
+    
 }
 
 #fruitcontainer{
@@ -62,8 +62,6 @@ html{
     text-align: center;
     font-family: cursive, sans-serif;
     overflow: hidden;
-    border-radius: 1vw;
-    box-shadow: 0px 0.2vw 0px 0px #4b4b4e;
     position: relative;
 }
 
@@ -113,7 +111,7 @@ html{
     font-weight: 600;
     font-size: 1vw;
 
-    border-radius: 50px; 
+    
     border: 0.1vw solid #3d7a35;
     box-shadow: 0px 0.3vw 0.6vw rgba(0, 0, 0, 0.15);
     transition: all .2s ease;
